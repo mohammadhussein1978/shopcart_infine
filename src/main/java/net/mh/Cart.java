@@ -20,14 +20,14 @@ public class Cart {
     public Double total()
     {
         return productList.stream()
-                .mapToDouble(p-> p.getTotal())
+                .mapToDouble(Product::getTotal)
                 .sum();
     }
     public void print()
     {
         System.out.printf( "%-10s %-20s %-20s %-15s %-20s %n", "id", "description","price","quantity","total");
         System.out.println("---------------------------------------------------------------------------");
-        productList.stream().forEach(p->{p.print();});
+        productList.forEach(Product::print);
         System.out.println("---------------------------------------------------------------------------");
         System.out.printf( "%-68s %-20.2f %n", "Total", total());
     }
